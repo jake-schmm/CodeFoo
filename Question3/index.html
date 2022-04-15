@@ -1,0 +1,504 @@
+<html>
+
+<head>
+
+    <style>
+        video {
+            margin-top: 12%;
+            width: 110%;
+            margin-left: 5%;
+            height: 400px;
+            
+        }
+        #videoDescription {
+            margin-left: 2%;
+            width: 100%;
+            padding-right: 2%;
+        }
+
+        #videoTitle {
+            margin-left: 2%;
+            font-family: 'Cooper Black Regular', sans-serif;
+        }
+
+        @font-face {
+            font-family: 'Cooper Black Regular';
+            font-style: normal;
+            font-weight: normal;
+            src: url('resources/Cooper Black Regular.ttf') format('truetype');
+        }
+       
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .player {
+            width: 48%;
+            float: left;
+            position: relative;
+            
+        }
+        .scrollable-field {
+            float:left;
+            width: 50%;
+            position: relative;
+            transform: translate(30%, 50%);
+            height: 200px;
+            width: 500px;
+            overflow-y: auto;
+         
+        }
+        .videoElement {
+            height: 98px;
+            padding-bottom: 2%;
+            border-bottom: 1px solid gray;
+        }
+        img {
+            float: left;
+            width: 20%;
+            height: 80%;
+            margin-top: 2%;
+            margin-left: 5%;
+            border-radius: 17px;
+        }
+        .videoElement:after {
+            content: "";
+            display: table;
+            clear: both;
+        
+        }
+
+        .videoElement {
+            display: none;
+        }
+
+        .scrollable-field .videoElement:nth-child(1) {
+            display: block;
+        }
+
+        .scrollable-field .videoElement:nth-child(2) {
+            display: block;
+        }
+        
+        
+
+        #loadMore {
+            margin-top: 20px;
+            background-color: #B22222;
+            height: 30px;
+            position: relative;
+           
+            transform: translate(30%, 300%);
+            text-align: center;
+            min-width: 500px;
+            color: white;
+        }
+       
+        .elementTitle {
+            position: relative;
+            top: 7%;
+            
+            
+        }
+
+        #videoDescriptors {
+            margin-left: 10%;
+            margin-top: 2%;
+            width: 100%;
+        }
+        img {
+            padding-right: 2%;
+        }
+      
+        h1 {
+            position: relative;
+            text-align: center;
+            left: 2%;
+            transform:translate(0, 70%); 
+        }
+
+        .title {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .vidDuration {
+            position: absolute;
+            background-color: #272727;
+            color: white;
+            transform: translate(120%, 330%);
+            width: 10%;
+            height: 9%;
+            text-align: center;
+
+        }
+     
+       
+
+        
+       
+
+        .player.playing .controls {
+            opacity: 0;
+        }
+
+        .player:hover .controls {
+            opacity: 1;
+        }
+
+        .control-button {
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            opacity: .8;
+            transition: all .2s;
+        }
+
+        .control-button:hover {
+          opacity: 1;
+        }
+
+        .control-button svg {
+            stroke: #fff;
+            fill: transparent;
+        }
+
+        .controls {
+            margin-left: 13%;
+           
+            position: absolute;
+            
+            margin-top: -10%;
+            width: 94%;
+           
+      
+    
+        }
+        
+        .control-button.play-button {
+        height: 50px;
+        width: 50px;
+       
+        position: relative;
+        margin-left: 3%;
+        }
+
+        .play-button img {
+            background-size: 200%;
+            height: 50px;
+            width: 50px;
+        }
+
+        .infinity-button img {
+            background-size: 200%;
+            height: 50px;
+            width: 50px;
+        }
+
+        .infinity-button {
+            position: relative; 
+            transform: translate(0, -33%);
+        }
+
+        .sound-button {
+            position: relative;
+            transform: translate(0, -33%);
+        }
+
+        .volumeBar {
+            position: relative;
+            transform: translate(0, -33%);
+        }
+
+        .expand-button {
+           position: relative;
+           transform: translate(0, -46%);
+           margin-left: 27%;
+        }
+
+        .hd-button {
+            margin-left: 20%;
+        }
+
+        .fullscreen-button {
+            position: relative;
+            transform: translate(0, -70%);
+            margin-left: 10%;
+            top: -51.5%;
+            left: 37%;
+        }
+        
+        
+
+        #time {
+            margin-bottom: 40px;
+        }
+
+        .subtitles-button {
+            margin-left: 73%;
+            position: relative;
+            transform: translate(0, -98%);
+        }
+
+        
+        .subtitles-button img {
+            background-size: 200%;
+            height: 50px;
+            width: 50px;
+            
+        }
+
+
+        .sound-button img {
+            background-size: 200%;
+            height: 50px;
+            width: 50px;
+        }
+
+        .expand-button {
+            position: relative;
+            top: -50%;
+            left: 20%;
+        }
+        .hd-button img {
+            background-size: 200%;
+            height: 50px;
+            width: 50px;
+        }
+
+        .expand-button img {
+            background-size: 200%;
+            height: 50px;
+            width: 50px;
+        }
+
+        .fullscreen-button img {
+            background-size: 200%;
+            height: 45px;
+            width: 45px;
+        }
+        .control-button.fullscreen-button {
+        height: 35px;
+        width: 35px;
+        }
+
+        .timeline {
+  -webkit-appearance: none;
+  width: calc(100% - 125px);
+  height: .5em;
+  background-color: rgba(255, 255, 255, .3);
+  border-radius: 5px;
+  background-size: 0% 100%;
+  background-image: linear-gradient(#fff, #fff);
+  background-repeat: no-repeat;
+}
+        .timeline::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  transition: all .1s;
+  background-color: rgba(255, 255, 255, .8);
+}
+
+.timeline::-moz-range-thumb {
+  -webkit-appearance: none;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  transition: all .1s;
+  background-color: rgba(255, 255, 255, .8);
+}
+
+.timeline::-ms-thumb {
+  -webkit-appearance: none;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  transition: all .1s;
+  background-color: rgba(255, 255, 255, .8);
+}
+
+.timeline::-webkit-slider-thumb:hover {
+  background-color: #fff;
+}
+
+.timeline:hover::-webkit-slider-thumb {
+  opacity: 1;
+}
+.timeline::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+
+.timeline::-moz-range-track {
+  -webkit-appearance: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+
+.volumeBar {
+    max-width: 10%;
+  
+}
+
+#time {
+   position: relative;
+   margin-left: 1%;
+   min-width: 20%;
+   transform: translate(0, 15%);
+   color: white;
+   
+}
+.buttonControls {
+    display: flex;
+    margin-left: -4%;
+    margin-top: 1%
+ 
+}
+
+#multTags {
+    position: absolute; 
+    color: white;
+    top: -100%;
+    left: 80%;
+}   
+
+.timeline::-ms-track {
+  -webkit-appearance: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+
+#oneTag {
+    position: absolute; 
+    color: white;
+    top: -120%;
+    left: 80%;
+}
+
+#videoSeries {
+    position: absolute;
+    color: white;
+    top: -23%;
+    left: 60%;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+
+</style>
+  
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="load-more-button.js"></script>
+
+</head>
+
+<body>
+
+    <div class="row">
+        <h1 class="title">IGN Video Player</h1>
+
+        
+        <div class="player">
+            
+                <video id="videos">
+                
+                    
+                <!-- fallback content here -->
+                </video>
+            
+
+            <div class="controls">
+                
+                <input type="range" min="0" max="100" class="timeline" value="0" />
+                
+                <div class="buttonControls"> 
+                <button id="play-button" class="play-button control-button">
+                    <img src="resources/icons8-play-100.png">
+                </button>
+
+                <button id="infinity-button" class="control-button infinity-button">
+                    <img src="resources/icons8-infinity-100.png">
+                </button>
+
+                <button class="sound-button control-button">
+                    <img src="resources/icons8-sound-100.png">
+                </button>
+                <input type="range" min="0" class="volumeBar" max="20" value="20" />
+                
+                <p id="time"></p>
+
+
+                <div>
+                <button id="hd-button" class="control-button hd-button">
+                    <img src="resources/icons8-hd-100.png">
+                </button>
+
+                
+                <button id="subtitles-button" class="control-button subtitles-button">
+                    <img src="resources/icons8-rectangle-100.png">
+                </button>
+
+                <p id="oneTag"></p>
+
+                <button id="expand-button" class="control-button expand-button">
+                    <img src="resources/icons8-resize-horizontal-100.png">
+                </button>
+
+                <p id="multTags"></p>
+
+                <button id="fullscreen-button" class="control-button fullscreen-button">
+                    <img src="resources/icons8-resize-100.png">
+                </button>
+
+                <p id="videoSeries"></p>
+
+            </div>
+                
+                    
+                
+            </div>
+           
+              </div>
+            
+        <div id="videoDescriptors">
+            <b><h2 id="videoTitle"></h2></b>
+            <p id="videoDescription"></p>
+        </div>
+     
+        </div>
+        
+
+
+        <div class="scrollable-field">
+ 
+     
+</div>
+
+
+<button id="loadMore" onclick="addContent()">Load More</button>
+    <script src="scripts.js"></script>
+    <script src="scripts2.js"></script>
+
+</body>
+
+
+
+
+</html>
