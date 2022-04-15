@@ -3,10 +3,15 @@ know the Discharge move, which has 80 power.
 
 Let's assume that one Discharge has the equivalent Kilowatt per Hr of a thunder bolt, which is 250 Kw/h. 
 
-Each Voltorb can supply 25 discharges (6,250 Kw/h) before having to visit the Pokecenter, and let's assume that Voltorbs can be transported to the Pokecenter while other Voltorbs are powering the Village on a tag-team basis, so half of the Voltorbs will be in the Pokecenter while the other half will be actively powering buildings. In other words, we will need twice the amount of Voltorbs that we would normally need without considering Pokecenter visits, so multiply by two at the end (6,250 Kw/h is essentially two Voltorbs in this case to keep up the power). 
+Each Voltorb can supply 25 discharges (6,250 Kw/h) before having to visit the Pokecenter, and let's assume that Voltorbs can be transported to the Pokecenter while 
+other Voltorbs are powering the Village on a tag-team basis, so half of the Voltorbs will be in the Pokecenter while the other half will be actively powering 
+buildings. In other words, we will need twice the amount of Voltorbs that we would normally need without considering Pokecenter visits, so multiply by two at the end 
+(6,250 Kw/h is essentially two Voltorbs in this case to keep up the power). 
 
 
-An average building requires 22.5 Kw/h per square foot, so we will look at the buildings in Jubilee City and find their square footage to calculate the power required by each building. Exceptions to the average building rule will be the Global Terminal, which we will say requires the power of 25 computers (10,000 kwH), and the TV station, which we will say requires 26,000 Kwh. 
+An average building requires 22.5 Kw/h per square foot, so we will look at the buildings in Jubilee City and find their square footage to calculate the power required 
+by each building. Exceptions to the average building rule will be the Global Terminal, which we will say requires the power of 25 computers (10,000 kwH), and the TV 
+station, which we will say requires 26,000 Kwh. 
 We will also consider the population and decide that the average home requires 10,715 kilowatthours (Kwh). 
 
 Power required by populations' houses in Pokemon Platinum: (124 people) * 10,715 = 1,328,660 
